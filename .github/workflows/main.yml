@@ -37,11 +37,11 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/x1-validator:latest, ${{ secrets.DOCKERHUB_USERNAME }}/x1-validator:${{ steps.vars.outputs.sha_short }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/x1:node, ${{ secrets.DOCKERHUB_USERNAME }}/x1:node-${{ steps.vars.outputs.sha_short }}
       
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ secrets.DOCKERHUB_USERNAME }}/x1-validator
+          repository: ${{ secrets.DOCKERHUB_USERNAME }}/x1
